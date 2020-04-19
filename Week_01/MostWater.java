@@ -14,7 +14,8 @@ public class MostWater {
 	public int mostWater2(int[] a) {
 		int max = 0;
 		for(int i = 0, j = a.length-1; i < a.length; ++i) {
-			int area = (j-i+1)*Math.min(a[i++], a[j--]);
+			int minHeight = (a[j] < a[i]) ? a[j--]:a[i++];
+			int area = (j-i+1)*minHeight;
 			max = Math.max(max, area);
 		}
 		return max;
